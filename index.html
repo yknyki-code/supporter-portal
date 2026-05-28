@@ -4,638 +4,589 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>コンテンツ販売 | サポーター研修ポータル</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #0f0f0f;
-    --ink2: #3a3a3a;
-    --ink3: #888;
-    --paper: #fafaf7;
-    --paper2: #f0efe8;
-    --accent: #1a4fd8;
-    --accent2: #e84444;
-    --green: #1a7a4a;
-    --border: rgba(0,0,0,0.1);
-    --radius: 4px;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Noto Sans JP', sans-serif; background: var(--paper); color: var(--ink); font-size: 14px; line-height: 1.6; }
+:root {
+  --sage: #b5c9b7;
+  --sage-light: #edf3ee;
+  --sage-pale: #f5f9f5;
+  --peach: #f0d9cc;
+  --peach-light: #faf2ee;
+  --lavender: #d6cfe8;
+  --lav-light: #f2f0f9;
+  --cream: #fdf8f3;
+  --warm-white: #fefcf9;
+  --text: #3d3730;
+  --text2: #7a6f68;
+  --text3: #b0a49d;
+  --border: rgba(0,0,0,0.07);
+  --r-sm: 12px;
+  --r-md: 20px;
+  --r-lg: 32px;
+  --r-xl: 48px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Noto Sans JP', sans-serif; background: var(--cream); color: var(--text); font-size:14px; line-height:1.7; }
 
-  /* TOP BAR */
-  .topbar { background: var(--ink); color: #fff; padding: 0 32px; height: 48px; display: flex; align-items: center; justify-content: space-between; font-size: 11px; letter-spacing: 0.12em; }
-  .topbar-left { display: flex; align-items: center; gap: 24px; }
-  .logo { font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; color: #fff; }
-  .topbar-tag { background: var(--accent); color: #fff; padding: 2px 8px; border-radius: 2px; font-size: 10px; font-weight: 500; letter-spacing: 0.08em; }
-  .topbar-right { display: flex; gap: 20px; opacity: 0.6; font-size: 11px; }
+/* TOPBAR */
+.topbar { background: var(--warm-white); height: 60px; display:flex; align-items:center; padding: 0 40px; justify-content:space-between; border-bottom: 1px solid var(--border); }
+.logo { font-family: 'Noto Serif JP', serif; font-size: 18px; color: var(--text); letter-spacing: 0.05em; }
+.logo span { color: var(--sage); }
+.topbar-tag { background: var(--sage-light); color: var(--sage); padding: 5px 14px; border-radius: 100px; font-size: 11px; font-weight: 500; }
+.topbar-right { font-size: 12px; color: var(--text3); }
 
-  /* HERO */
-  .hero { padding: 64px 32px 48px; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr 320px; gap: 48px; align-items: end; }
-  .hero-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-  .hero-label::before { content:''; display: inline-block; width: 20px; height: 1px; background: var(--accent); }
-  .hero h1 { font-size: 36px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 20px; }
-  .hero h1 em { font-style: normal; color: var(--accent); }
-  .hero-desc { font-size: 14px; color: var(--ink2); line-height: 1.8; max-width: 520px; }
-  .hero-stats { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-  .stat-row { background: var(--paper); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; }
-  .stat-label { font-size: 11px; color: var(--ink3); letter-spacing: 0.06em; }
-  .stat-value { font-family: 'DM Mono', monospace; font-size: 16px; font-weight: 500; color: var(--ink); }
-  .stat-value.accent { color: var(--accent); }
-  .stat-value.green { color: var(--green); }
+/* HERO */
+.hero { background: var(--warm-white); padding: 64px 40px 56px; position: relative; overflow: hidden; }
+.hero::before { content:''; position:absolute; top:-80px; right:-80px; width:360px; height:360px; background: var(--sage-light); border-radius:50%; opacity:0.6; }
+.hero::after { content:''; position:absolute; bottom:-60px; right:160px; width:200px; height:200px; background: var(--peach-light); border-radius:50%; opacity:0.7; }
+.hero-inner { position:relative; z-index:1; max-width: 640px; }
+.hero-pill { display:inline-block; background: var(--peach-light); color: var(--text2); padding: 6px 18px; border-radius: 100px; font-size: 12px; margin-bottom: 20px; }
+.hero h1 { font-family: 'Noto Serif JP', serif; font-size: 42px; font-weight: 700; line-height: 1.3; letter-spacing: 0.02em; margin-bottom: 18px; color: var(--text); }
+.hero h1 em { font-style:normal; color: var(--sage); }
+.hero-desc { font-size: 14px; color: var(--text2); line-height: 1.9; max-width: 500px; }
 
-  /* MAIN LAYOUT */
-  .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
-  .layout { display: grid; grid-template-columns: 220px 1fr; gap: 0; min-height: calc(100vh - 180px); }
 
-  /* SIDEBAR */
-  .sidebar { border-right: 1px solid var(--border); padding: 32px 0; position: sticky; top: 0; height: calc(100vh - 48px); overflow-y: auto; }
-  .sidebar-section { margin-bottom: 28px; }
-  .sidebar-title { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.16em; color: var(--ink3); padding: 0 20px; margin-bottom: 8px; text-transform: uppercase; }
-  .nav-item { display: flex; align-items: center; gap: 10px; padding: 8px 20px; font-size: 13px; color: var(--ink2); cursor: pointer; transition: all 0.15s; border-left: 2px solid transparent; text-decoration: none; }
-  .nav-item:hover { background: var(--paper2); color: var(--ink); }
-  .nav-item.active { border-left-color: var(--accent); background: rgba(26,79,216,0.04); color: var(--accent); font-weight: 500; }
-  .nav-num { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--ink3); min-width: 20px; }
-  .nav-badge { margin-left: auto; font-size: 10px; padding: 1px 6px; border-radius: 10px; }
-  .badge-done { background: rgba(26,122,74,0.12); color: var(--green); }
-  .badge-wip { background: rgba(26,79,216,0.1); color: var(--accent); }
-  .badge-lock { background: var(--paper2); color: var(--ink3); }
+/* LAYOUT */
+.layout { display:grid; grid-template-columns: 220px 1fr; min-height: calc(100vh - 200px); }
 
-  /* CONTENT AREA */
-  .content { padding: 32px 40px; }
+/* SIDEBAR */
+.sidebar { background: var(--warm-white); border-right: 1px solid var(--border); padding: 32px 0; }
+.sidebar-sec { margin-bottom: 28px; }
+.sidebar-label { font-size: 10px; color: var(--text3); letter-spacing: 0.14em; padding: 0 22px; margin-bottom: 8px; }
+.nav-item { display:flex; align-items:center; gap:10px; padding: 9px 22px; font-size: 13px; color: var(--text2); cursor:pointer; text-decoration:none; border-radius: 0; transition: all 0.15s; border-left: 3px solid transparent; }
+.nav-item:hover { background: var(--sage-pale); color: var(--text); }
+.nav-item.active { background: var(--sage-light); color: var(--sage); border-left-color: var(--sage); font-weight: 500; }
+.nav-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); flex-shrink:0; }
+.nav-item.active .nav-dot { background: var(--sage); }
+.nav-badge { margin-left:auto; font-size:10px; padding:2px 8px; border-radius:100px; }
+.b-on { background: var(--sage-light); color: var(--sage); }
+.b-off { background: var(--peach-light); color: var(--text3); }
+.sidebar-div { height:1px; background: var(--border); margin: 6px 22px; }
 
-  /* SECTION */
-  .section { margin-bottom: 48px; }
-  .section-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
-  .section-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink3); }
-  .section-title { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
-  .section-sub { font-size: 12px; color: var(--ink3); margin-left: auto; }
+/* CONTENT */
+.content { padding: 40px 48px; background: var(--cream); }
+.section { margin-bottom: 56px; }
+.sec-head { display:flex; align-items:center; gap:12px; margin-bottom: 24px; }
+.sec-icon { width:36px; height:36px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0; }
+.ic-sage { background: var(--sage-light); }
+.ic-peach { background: var(--peach-light); }
+.ic-lav { background: var(--lav-light); }
+.sec-title { font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 700; }
+.sec-sub { margin-left:auto; font-size: 12px; color: var(--text3); background: var(--warm-white); padding: 3px 12px; border-radius: 100px; border: 1px solid var(--border); }
 
-  /* PHASE CARDS */
-  .phase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 24px; }
-  .phase-card { background: var(--paper); padding: 20px; }
-  .phase-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.12em; padding: 3px 8px; border-radius: 2px; margin-bottom: 10px; }
-  .tag-blue { background: rgba(26,79,216,0.08); color: var(--accent); }
-  .tag-green { background: rgba(26,122,74,0.08); color: var(--green); }
-  .tag-red { background: rgba(232,68,68,0.08); color: var(--accent2); }
-  .tag-gray { background: var(--paper2); color: var(--ink3); }
-  .phase-name { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
-  .phase-goal { font-size: 12px; color: var(--ink3); line-height: 1.5; }
+/* PHASE CARDS */
+.phase-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin-bottom:20px; }
+.phase-card { background: var(--warm-white); border-radius: var(--r-md); padding: 24px 22px; border: 1px solid var(--border); transition: transform 0.2s; }
+.phase-card:hover { transform: translateY(-2px); }
+.phase-card.c-sage { border-top: 4px solid var(--sage); }
+.phase-card.c-peach { border-top: 4px solid var(--peach); }
+.phase-card.c-lav { border-top: 4px solid var(--lavender); }
+.phase-num { font-size: 11px; color: var(--text3); letter-spacing: 0.1em; margin-bottom: 10px; }
+.phase-name { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+.phase-desc { font-size: 12px; color: var(--text2); line-height: 1.7; }
 
-  /* ROADMAP */
-  .roadmap { position: relative; }
-  .roadmap-item { display: grid; grid-template-columns: 80px 24px 1fr; gap: 0 12px; margin-bottom: 0; }
-  .roadmap-day { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink3); padding-top: 14px; text-align: right; }
-  .roadmap-line { display: flex; flex-direction: column; align-items: center; }
-  .roadmap-dot { width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--accent); background: var(--paper); margin-top: 16px; flex-shrink: 0; z-index: 1; }
-  .roadmap-dot.done { background: var(--green); border-color: var(--green); }
-  .roadmap-dot.current { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 3px rgba(26,79,216,0.15); }
-  .roadmap-connector { width: 1px; background: var(--border); flex: 1; }
-  .roadmap-item:last-child .roadmap-connector { display: none; }
-  .roadmap-body { padding: 10px 0 20px; }
-  .roadmap-title { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
-  .roadmap-detail { font-size: 12px; color: var(--ink3); line-height: 1.6; }
+/* INFO BOX */
+.infobox { background: var(--sage-light); border-radius: var(--r-md); padding: 18px 22px; margin: 16px 0; }
+.infobox p { font-size: 13px; color: var(--text); line-height: 1.8; }
+.warnbox { background: var(--peach-light); border-radius: var(--r-md); padding: 18px 22px; margin: 16px 0; }
+.warnbox p { font-size: 13px; color: var(--text); line-height: 1.8; }
 
-  /* CHECKLIST */
-  .checklist { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-  .check-row { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--border); background: var(--paper); transition: background 0.1s; }
-  .check-row:last-child { border-bottom: none; }
-  .check-row:hover { background: var(--paper2); }
-  .check-box { width: 16px; height: 16px; border: 1.5px solid var(--border); border-radius: 2px; flex-shrink: 0; margin-top: 1px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
-  .check-box.checked { background: var(--green); border-color: var(--green); }
-  .check-box.checked::after { content: '✓'; font-size: 10px; color: white; font-weight: 700; }
-  .check-text { font-size: 13px; flex: 1; }
-  .check-text.checked { color: var(--ink3); text-decoration: line-through; }
-  .check-meta { font-size: 11px; color: var(--ink3); }
+/* PROGRESS */
+.prog-wrap { background: var(--warm-white); border-radius: var(--r-md); padding: 22px 24px; border: 1px solid var(--border); }
+.prog-title { font-size: 11px; color: var(--text3); letter-spacing: 0.1em; margin-bottom: 16px; }
+.prog-row { display:flex; align-items:center; gap:14px; margin-bottom:14px; }
+.prog-row:last-child { margin-bottom:0; }
+.prog-label { font-size: 12px; color: var(--text2); min-width: 160px; }
+.prog-bar { flex:1; height: 8px; background: var(--cream); border-radius: 100px; overflow:hidden; }
+.prog-fill { height:100%; border-radius:100px; background: var(--sage); }
+.prog-pct { font-size: 12px; color: var(--text3); min-width: 32px; text-align:right; }
 
-  /* QUIZ TEASER */
-  .quiz-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .quiz-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; background: var(--paper); cursor: pointer; transition: all 0.15s; }
-  .quiz-card:hover { border-color: var(--accent); background: rgba(26,79,216,0.02); }
-  .quiz-cat { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--ink3); letter-spacing: 0.1em; margin-bottom: 8px; }
-  .quiz-q { font-size: 13px; font-weight: 500; line-height: 1.5; margin-bottom: 10px; }
-  .quiz-count { font-size: 11px; color: var(--ink3); }
+/* ROADMAP */
+.rm-wrap { background: var(--warm-white); border-radius: var(--r-md); padding: 28px 28px 8px; border: 1px solid var(--border); }
+.rm-item { display:grid; grid-template-columns: 90px 28px 1fr; gap: 0 14px; }
+.rm-day { font-size: 11px; color: var(--text3); text-align:right; padding-top: 18px; line-height: 1.4; }
+.rm-line { display:flex; flex-direction:column; align-items:center; }
+.rm-dot { width:12px; height:12px; border-radius:50%; border: 2px solid var(--sage-light); background: var(--cream); margin-top:17px; flex-shrink:0; transition: all 0.2s; }
+.rm-dot.done { background: var(--sage); border-color: var(--sage); }
+.rm-dot.now { background: var(--sage); border-color: var(--sage); box-shadow: 0 0 0 5px var(--sage-light); }
+.rm-conn { width: 1px; background: var(--border); flex:1; margin-top: 2px; }
+.rm-item:last-child .rm-conn { display:none; }
+.rm-body { padding: 12px 0 26px; }
+.rm-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; color: var(--text); }
+.rm-detail { font-size: 12px; color: var(--text2); line-height: 1.7; }
+.rm-now-tag { display:inline-block; background: var(--sage-light); color: var(--sage); font-size: 10px; padding: 1px 8px; border-radius: 100px; margin-left: 8px; vertical-align: middle; }
 
-  /* MTNG TABLE */
-  .mtng-table { width: 100%; border-collapse: collapse; }
-  .mtng-table th { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--ink3); text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); background: var(--paper2); }
-  .mtng-table td { padding: 12px; border-bottom: 1px solid var(--border); font-size: 13px; vertical-align: top; }
-  .mtng-table tr:last-child td { border-bottom: none; }
-  .mtng-table tr:hover td { background: var(--paper2); }
-  .phase-pill { display: inline-block; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 500; }
-  .goal-text { font-size: 12px; color: var(--ink3); margin-top: 3px; }
+/* CHECKLIST */
+.checklist { background: var(--warm-white); border-radius: var(--r-md); overflow:hidden; border: 1px solid var(--border); }
+.check-row { display:flex; align-items:flex-start; gap:14px; padding: 14px 20px; border-bottom: 1px solid var(--border); cursor:pointer; transition: background 0.12s; }
+.check-row:last-child { border-bottom:none; }
+.check-row:hover { background: var(--sage-pale); }
+.check-box { width:18px; height:18px; border-radius:6px; border: 1.5px solid var(--border); flex-shrink:0; margin-top:1px; display:flex; align-items:center; justify-content:center; transition: all 0.15s; background: var(--cream); }
+.check-box.checked { background: var(--sage); border-color: var(--sage); }
+.check-box.checked::after { content:'✓'; font-size:11px; color:#fff; font-weight:700; }
+.check-text { font-size: 13px; flex:1; color: var(--text); }
+.check-text.checked { color: var(--text3); text-decoration: line-through; }
+.check-meta { font-size: 11px; color: var(--text3); background: var(--cream); padding: 2px 10px; border-radius: 100px; white-space: nowrap; border: 1px solid var(--border); }
 
-  /* ACCOUNT CARDS */
-  .account-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-  .account-card { background: var(--paper); padding: 16px 12px; text-align: center; }
-  .account-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 13px; font-weight: 700; }
-  .av-blue { background: rgba(26,79,216,0.1); color: var(--accent); }
-  .av-green { background: rgba(26,122,74,0.1); color: var(--green); }
-  .av-red { background: rgba(232,68,68,0.1); color: var(--accent2); }
-  .av-amber { background: rgba(200,130,20,0.1); color: #c88214; }
-  .av-purple { background: rgba(100,60,200,0.1); color: #643cc8; }
-  .account-name { font-size: 12px; font-weight: 700; margin-bottom: 2px; }
-  .account-genre { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--ink3); margin-bottom: 8px; }
-  .account-status { font-size: 10px; padding: 2px 6px; border-radius: 2px; display: inline-block; }
-  .status-active { background: rgba(26,122,74,0.1); color: var(--green); }
-  .status-launch { background: rgba(26,79,216,0.1); color: var(--accent); }
+/* TABLE */
+.data-table { width:100%; border-collapse:separate; border-spacing:0; border-radius: var(--r-md); overflow:hidden; border: 1px solid var(--border); background: var(--warm-white); }
+.data-table th { background: var(--sage-light); color: var(--text); font-size: 12px; font-weight: 700; text-align:left; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+.data-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); font-size: 13px; vertical-align:top; background: var(--warm-white); }
+.data-table tr:last-child td { border-bottom:none; }
+.data-table tr:hover td { background: var(--sage-pale); }
+.s-pill { display:inline-block; padding: 3px 10px; border-radius:100px; font-size:11px; font-weight:500; }
+.s-done { background: var(--sage-light); color: var(--sage); }
+.s-wip { background: var(--peach-light); color: #b07060; }
+.s-wait { background: var(--lav-light); color: var(--lavender); filter: brightness(0.7); }
+.td-sub { font-size: 11px; color: var(--text3); margin-top: 3px; }
 
-  /* PROGRESS BAR */
-  .progress-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-  .progress-label { font-size: 12px; color: var(--ink2); min-width: 140px; }
-  .progress-bar { flex: 1; height: 4px; background: var(--paper2); border-radius: 2px; overflow: hidden; }
-  .progress-fill { height: 100%; border-radius: 2px; transition: width 0.6s ease; }
-  .pf-blue { background: var(--accent); }
-  .pf-green { background: var(--green); }
-  .pf-amber { background: #c88214; }
-  .progress-pct { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink3); min-width: 36px; text-align: right; }
+/* ACCOUNTS */
+.account-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
+.account-card { background: var(--warm-white); border-radius: var(--r-md); padding: 20px 14px; text-align:center; border: 1px solid var(--border); transition: transform 0.2s; }
+.account-card:hover { transform: translateY(-2px); }
+.av { width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 10px; font-size:15px; font-weight:700; }
+.av-s { background: var(--sage-light); color: var(--sage); }
+.av-p { background: var(--peach-light); color: #c49080; }
+.av-l { background: var(--lav-light); color: #8b7ec0; }
+.av-m { background: #fef3e2; color: #c0a060; }
+.av-t { background: #e8f4f8; color: #6098b0; }
+.acc-name { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+.acc-genre { font-size: 11px; color: var(--text3); margin-bottom: 10px; }
+.acc-badge { font-size: 10px; padding: 3px 10px; border-radius: 100px; display:inline-block; }
+.ab-g { background: var(--sage-light); color: var(--sage); }
+.ab-p { background: var(--peach-light); color: #b07060; }
 
-  /* INFO BOX */
-  .info-box { border-left: 3px solid var(--accent); padding: 14px 16px; background: rgba(26,79,216,0.03); margin: 16px 0; border-radius: 0 var(--radius) var(--radius) 0; }
-  .info-box p { font-size: 13px; color: var(--ink2); line-height: 1.7; }
-  .warn-box { border-left: 3px solid var(--accent2); padding: 14px 16px; background: rgba(232,68,68,0.03); margin: 16px 0; border-radius: 0 var(--radius) var(--radius) 0; }
-  .warn-box p { font-size: 13px; color: var(--ink2); line-height: 1.7; }
+/* QUIZ */
+.quiz-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+.quiz-card { background: var(--warm-white); border-radius: var(--r-md); padding: 20px 22px; border: 1px solid var(--border); cursor:pointer; transition: all 0.15s; }
+.quiz-card:hover { background: var(--sage-light); transform: translateY(-1px); }
+.quiz-cat { font-size: 10px; color: var(--text3); letter-spacing: 0.1em; margin-bottom: 6px; }
+.quiz-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.quiz-count { font-size: 12px; color: var(--text2); }
+.quiz-total { background: var(--sage-light); border-radius: var(--r-md); padding: 20px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:4px; border: 1px solid var(--border); }
+.quiz-big { font-family: 'Noto Serif JP', serif; font-size: 40px; font-weight: 700; color: var(--sage); }
 
-  /* FOOTER */
-  footer { border-top: 1px solid var(--border); padding: 24px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--ink3); }
+/* FOOTER */
+footer { background: var(--warm-white); border-top: 1px solid var(--border); padding: 24px 40px; display:flex; justify-content:space-between; align-items:center; font-size: 12px; color: var(--text3); }
+footer .logo-sm { font-family: 'Noto Serif JP', serif; font-size: 14px; color: var(--text2); }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+.hero-inner { animation: fadeUp 0.6s ease both; }
+.stats-row { animation: fadeUp 0.6s 0.1s ease both; }
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <div class="topbar-left">
-    <span class="logo">BUZZ</span>
-    <span class="topbar-tag">SUPPORTER TRAINING</span>
-    <span style="opacity:0.4;">コンテンツ販売 研修ポータル</span>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <span class="logo">BUZZ <span>✦</span></span>
+    <span class="topbar-tag">サポーター研修ポータル</span>
   </div>
-  <div class="topbar-right">
-    <span>ver 2.0</span>
-    <span>2026年度</span>
+  <span class="topbar-right">2026年度</span>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-pill">CONTENT SALES SUPPORTER TRAINING</div>
+    <h1>コンテンツ販売<br><em>研修サイト</em></h1>
+    <p class="hero-desc">コンテンツ販売チームに関わるサポーターとして必要な知識・スキルを、約1ヶ月間で体系的に習得するための場所です。研修ロードマップ・打ち合わせ進行・ロープレ・知識テストまで、必要なものがすべてここにまとまっています。</p>
   </div>
 </div>
 
-<div style="padding: 0 32px;">
-  <div class="hero">
-    <div>
-      <div class="hero-label">CONTENT SALES SUPPORTER</div>
-      <h1>サポーター研修<br><em>ポータル</em></h1>
-      <p class="hero-desc">コンテンツ販売サポーターとして必要な知識・スキルを体系的に習得するための研修ハブです。導入期間（1〜30日）のロードマップ、打ち合わせ進行、ロープレ、知識テストをすべてここで管理します。</p>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="sidebar-sec">
+      <div class="sidebar-label">概要</div>
+      <a class="nav-item active" href="#overview"><span class="nav-dot"></span>このサイトの使い方</a>
     </div>
-    <div class="hero-stats">
-      <div class="stat-row">
-        <span class="stat-label">研修期間</span>
-        <span class="stat-value accent">30日間</span>
+    <div class="sidebar-div"></div>
+    <div class="sidebar-sec">
+      <div class="sidebar-label">研修スケジュール</div>
+      <a class="nav-item" href="#roadmap"><span class="nav-dot"></span>ロードマップ<span class="nav-badge b-on">進行中</span></a>
+      <a class="nav-item" href="#checklist"><span class="nav-dot"></span>初回チェックリスト</a>
+      <a class="nav-item" href="#schedule-table"><span class="nav-dot"></span>研修スケジュール表</a>
+      <a class="nav-item" href="#output-table"><span class="nav-dot"></span>アウトプット記入表</a>
+    </div>
+    <div class="sidebar-div"></div>
+    <div class="sidebar-sec">
+      <div class="sidebar-label">リソース</div>
+      <a class="nav-item" href="https://ibo.teachable.com/courses/" target="_blank"><span class="nav-dot"></span>IBOサイト</a>
+      <a class="nav-item" href="https://www.notion.so/308bfd793c7280d080a1f262ab06f1c5" target="_blank"><span class="nav-dot"></span>Notion資料</a>
+      <a class="nav-item" href="https://mm.tt/map/3718594563?t=Pw8LZibFhf" target="_blank"><span class="nav-dot"></span>Mindmap</a>
+      <a class="nav-item" href="https://canva.link/klgnwv4dll0smaa" target="_blank"><span class="nav-dot"></span>Canvaテンプレート</a>
+    </div>
+  </nav>
+
+  <main class="content">
+
+    <div class="section" id="overview">
+      <div class="sec-head">
+        <div class="sec-icon ic-sage">🌿</div>
+        <span class="sec-title">コンテンツ販売の全体フロー</span>
+        <span class="sec-sub">3フェーズ</span>
       </div>
-      <div class="stat-row">
-        <span class="stat-label">打ち合わせフェーズ</span>
-        <span class="stat-value">9フェーズ</span>
+      <div class="phase-grid">
+        <div class="phase-card c-sage">
+          <div class="phase-num">PHASE 01</div>
+          <div class="phase-name">LINE誘導 / リスト取り</div>
+          <div class="phase-desc">フォロワーを公式LINEへ誘導しリストを構築。目標は1,000人登録。</div>
+        </div>
+        <div class="phase-card c-peach">
+          <div class="phase-num">PHASE 02</div>
+          <div class="phase-name">商品作成 / 設計</div>
+          <div class="phase-desc">コンセプト設計・商品内容確定・資料または動画の制作。</div>
+        </div>
+        <div class="phase-card c-lav">
+          <div class="phase-num">PHASE 03</div>
+          <div class="phase-name">販売 / ローンチ</div>
+          <div class="phase-desc">プレゼント企画・ストーリーズ・LINE配信・ローンチの実施。</div>
+        </div>
       </div>
-      <div class="stat-row">
-        <span class="stat-label">ロープレ対象</span>
-        <span class="stat-value">5アカウント</span>
+      <div class="infobox">
+        <p>💚 <strong>サポーターの役割</strong>はコンサルタントではなく<strong>ビジネスパートナー</strong>。レベニューシェア形式でリスクとリターンを共有します。生徒さんが稼げなければサポーターも報酬なし。だからこそ全力でサポートできる仕組みです。</p>
       </div>
-      <div class="stat-row">
-        <span class="stat-label">知識クイズ</span>
-        <span class="stat-value green">20問</span>
-      </div>
-      <div class="stat-row">
-        <span class="stat-label">LINE目標</span>
-        <span class="stat-value accent">1,000人</span>
+      <div class="prog-wrap" style="margin-top:20px;">
+        <div class="prog-title">OVERALL PROGRESS</div>
+        <div class="prog-row"><span class="prog-label">リスト取り（通常投稿）</span><div class="prog-bar"><div class="prog-fill" style="width:45%"></div></div><span class="prog-pct">45%</span></div>
+        <div class="prog-row"><span class="prog-label">商品作成</span><div class="prog-bar"><div class="prog-fill" style="width:30%;background:var(--peach);"></div></div><span class="prog-pct">30%</span></div>
+        <div class="prog-row"><span class="prog-label">ローンチ準備</span><div class="prog-bar"><div class="prog-fill" style="width:10%;background:var(--lavender);"></div></div><span class="prog-pct">10%</span></div>
       </div>
     </div>
-  </div>
-</div>
 
-<div style="padding: 0 32px;">
-  <div class="layout">
-    <!-- SIDEBAR -->
-    <nav class="sidebar">
-      <div class="sidebar-section">
-        <div class="sidebar-title">概要</div>
-        <a class="nav-item active" href="#overview">
-          <span class="nav-num">00</span>全体フロー
-        </a>
-        <a class="nav-item" href="#accounts">
-          <span class="nav-num">01</span>担当アカウント
-        </a>
+    <div class="section" id="accounts">
+      <div class="sec-head">
+        <div class="sec-icon ic-peach">🌸</div>
+        <span class="sec-title">担当アカウント一覧</span>
+        <span class="sec-sub">5アカウント</span>
       </div>
-      <div class="sidebar-section">
-        <div class="sidebar-title">研修ロードマップ</div>
-        <a class="nav-item" href="#roadmap">
-          <span class="nav-num">02</span>1〜30日目
-          <span class="nav-badge badge-wip">進行中</span>
-        </a>
-        <a class="nav-item" href="#checklist">
-          <span class="nav-num">03</span>初回チェックリスト
-          <span class="nav-badge badge-wip">進行中</span>
-        </a>
+      <div class="account-grid">
+        <div class="account-card">
+          <div class="av av-s">K</div>
+          <div class="acc-name">konさん</div>
+          <div class="acc-genre">Excel</div>
+          <span class="acc-badge ab-g">ロープレ対象</span>
+        </div>
+        <div class="account-card">
+          <div class="av av-t">H</div>
+          <div class="acc-name">細谷さん</div>
+          <div class="acc-genre">知育</div>
+          <span class="acc-badge ab-g">ロープレ対象</span>
+        </div>
+        <div class="account-card">
+          <div class="av av-m">N</div>
+          <div class="acc-name">中村さん</div>
+          <div class="acc-genre">お金</div>
+          <span class="acc-badge ab-p">ローンチ準備中</span>
+        </div>
+        <div class="account-card">
+          <div class="av av-p">S</div>
+          <div class="acc-name">塩入さん</div>
+          <div class="acc-genre">イラスト</div>
+          <span class="acc-badge ab-g">ロープレ対象</span>
+        </div>
+        <div class="account-card">
+          <div class="av av-l">N</div>
+          <div class="acc-name">中本さん</div>
+          <div class="acc-genre">介護</div>
+          <span class="acc-badge ab-g">ロープレ対象</span>
+        </div>
       </div>
-      <div class="sidebar-section">
-        <div class="sidebar-title">打ち合わせ</div>
-        <a class="nav-item" href="#mtng">
-          <span class="nav-num">04</span>フェーズ一覧
-        </a>
-        <a class="nav-item" href="#roleplay">
-          <span class="nav-num">05</span>ロープレ資料
-          <span class="nav-badge badge-lock">未実施</span>
-        </a>
-      </div>
-      <div class="sidebar-section">
-        <div class="sidebar-title">テスト</div>
-        <a class="nav-item" href="#quiz">
-          <span class="nav-num">06</span>知識クイズ
-          <span class="nav-badge badge-lock">未受験</span>
-        </a>
-      </div>
-      <div class="sidebar-section">
-        <div class="sidebar-title">リソース</div>
-        <a class="nav-item" href="https://ibo.teachable.com/courses/" target="_blank">
-          <span class="nav-num">—</span>IBOコンテンツサイト
-        </a>
-        <a class="nav-item" href="https://ballistic-stick-887.notion.site/" target="_blank">
-          <span class="nav-num">—</span>Notion研修資料
-        </a>
-        <a class="nav-item" href="https://mm.tt/map/3718594563" target="_blank">
-          <span class="nav-num">—</span>Mindmap
-        </a>
-      </div>
-    </nav>
+    </div>
 
-    <!-- CONTENT -->
-    <main class="content">
-
-      <!-- 全体フロー -->
-      <div class="section" id="overview">
-        <div class="section-header">
-          <span class="section-num">00</span>
-          <span class="section-title">コンテンツ販売 全体フロー</span>
-          <span class="section-sub">3フェーズ構造</span>
-        </div>
-        <div class="phase-grid">
-          <div class="phase-card">
-            <span class="phase-tag tag-blue">PHASE 01</span>
-            <div class="phase-name">LINE誘導 / リスト取り</div>
-            <div class="phase-goal">フォロワーを公式LINEへ誘導し、リストを構築する。目標：1,000人登録</div>
-          </div>
-          <div class="phase-card">
-            <span class="phase-tag tag-green">PHASE 02</span>
-            <div class="phase-name">商品作成 / 設計</div>
-            <div class="phase-goal">コンセプト設計・商品内容確定・資料or動画の制作を行う</div>
-          </div>
-          <div class="phase-card">
-            <span class="phase-tag tag-red">PHASE 03</span>
-            <div class="phase-name">販売 / ローンチ</div>
-            <div class="phase-goal">プレゼント企画・ストーリーズ・LINE配信・ローンチを実施する</div>
-          </div>
-        </div>
-        <div class="info-box">
-          <p><strong>サポーターの役割：</strong>コンサルタントではなく<strong>ビジネスパートナー</strong>として、レベニューシェア形式でリスクとリターンを共有。生徒さんが稼げなければサポーターも報酬なし。だからこそ全力でサポートできる仕組み。</p>
-        </div>
-        <div style="margin-top: 20px;">
-          <div style="font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink3); margin-bottom: 12px; letter-spacing: 0.1em;">OVERALL PROGRESS</div>
-          <div class="progress-row"><span class="progress-label">リスト取り（通常投稿）</span><div class="progress-bar"><div class="progress-fill pf-blue" style="width: 45%"></div></div><span class="progress-pct">45%</span></div>
-          <div class="progress-row"><span class="progress-label">商品作成</span><div class="progress-bar"><div class="progress-fill pf-green" style="width: 30%"></div></div><span class="progress-pct">30%</span></div>
-          <div class="progress-row"><span class="progress-label">ローンチ準備</span><div class="progress-bar"><div class="progress-fill pf-amber" style="width: 10%"></div></div><span class="progress-pct">10%</span></div>
-        </div>
+    <div class="section" id="roadmap">
+      <div class="sec-head">
+        <div class="sec-icon ic-sage">📅</div>
+        <span class="sec-title">導入期間ロードマップ</span>
+        <span class="sec-sub">1〜30日目</span>
       </div>
-
-      <!-- 担当アカウント -->
-      <div class="section" id="accounts">
-        <div class="section-header">
-          <span class="section-num">01</span>
-          <span class="section-title">担当アカウント一覧</span>
-          <span class="section-sub">5アカウント</span>
+      <div class="rm-wrap">
+        <div class="rm-item">
+          <div class="rm-day">1日目</div>
+          <div class="rm-line"><div class="rm-dot done"></div><div class="rm-conn"></div></div>
+          <div class="rm-body">
+            <div class="rm-title">初回対応・環境整備</div>
+            <div class="rm-detail">IBOサイト登録 / Notion・Mindmap・Canva共有 / 研修シート送付 / Slack招待 / 初回日程調整</div>
+          </div>
         </div>
-        <div class="account-grid">
-          <div class="account-card">
-            <div class="account-avatar av-blue">K</div>
-            <div class="account-name">konさん</div>
-            <div class="account-genre">EXCEL</div>
-            <span class="account-status status-active">ロープレ対象</span>
+        <div class="rm-item">
+          <div class="rm-day">2〜7日目</div>
+          <div class="rm-line"><div class="rm-dot now"></div><div class="rm-conn"></div></div>
+          <div class="rm-body">
+            <div class="rm-title">全体像の把握 / 基礎編熟読<span class="rm-now-tag">現在地</span></div>
+            <div class="rm-detail">Mindmap・Notion通読 → IBOサイト「基礎編」まで熟読 → アウトプット記入</div>
           </div>
-          <div class="account-card">
-            <div class="account-avatar av-green">H</div>
-            <div class="account-name">細谷さん</div>
-            <div class="account-genre">知育</div>
-            <span class="account-status status-active">ロープレ対象</span>
+        </div>
+        <div class="rm-item">
+          <div class="rm-day">7〜12日目</div>
+          <div class="rm-line"><div class="rm-dot"></div><div class="rm-conn"></div></div>
+          <div class="rm-body">
+            <div class="rm-title">コンテンツ制作編を熟読</div>
+            <div class="rm-detail">資料向き・動画向きの違いを理解。商品タイプの判断基準をマスターする</div>
           </div>
-          <div class="account-card">
-            <div class="account-avatar av-amber">N</div>
-            <div class="account-name">中村さん</div>
-            <div class="account-genre">お金</div>
-            <span class="account-status status-launch">ローンチ準備中</span>
+        </div>
+        <div class="rm-item">
+          <div class="rm-day">12〜20日目</div>
+          <div class="rm-line"><div class="rm-dot"></div><div class="rm-conn"></div></div>
+          <div class="rm-body">
+            <div class="rm-title">準備編熟読 / ツール設定</div>
+            <div class="rm-detail">タイ版ライン購入・LINE設定 / ペライチ（LP）の見方・作り方を確認</div>
           </div>
-          <div class="account-card">
-            <div class="account-avatar av-red">S</div>
-            <div class="account-name">塩入さん</div>
-            <div class="account-genre">イラスト</div>
-            <span class="account-status status-active">ロープレ対象</span>
+        </div>
+        <div class="rm-item">
+          <div class="rm-day">20〜28日目</div>
+          <div class="rm-line"><div class="rm-dot"></div><div class="rm-conn"></div></div>
+          <div class="rm-body">
+            <div class="rm-title">運用編熟読</div>
+            <div class="rm-detail">コメント誘導3型 / CTA画像 / ローンチストーリーズの型を把握</div>
           </div>
-          <div class="account-card">
-            <div class="account-avatar av-purple">N</div>
-            <div class="account-name">中本さん</div>
-            <div class="account-genre">介護</div>
-            <span class="account-status status-active">ロープレ対象</span>
+        </div>
+        <div class="rm-item">
+          <div class="rm-day">28〜30日目</div>
+          <div class="rm-line"><div class="rm-dot"></div><div class="rm-conn"></div></div>
+          <div class="rm-body">
+            <div class="rm-title">アウトプット + ロープレ①②③</div>
+            <div class="rm-detail">学んだことをSlackにアウトプット投稿 / ZOOM内でロープレ3回実施</div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- ロードマップ -->
-      <div class="section" id="roadmap">
-        <div class="section-header">
-          <span class="section-num">02</span>
-          <span class="section-title">導入期間ロードマップ</span>
-          <span class="section-sub">1〜30日目</span>
+    <div class="section" id="checklist">
+      <div class="sec-head">
+        <div class="sec-icon ic-peach">✅</div>
+        <span class="sec-title">初回対応チェックリスト</span>
+        <span class="sec-sub">1日目完了必須</span>
+      </div>
+      <div class="checklist">
+        <div class="check-row" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">IBOコンテンツサイト登録（https://ibo.teachable.com/courses/）</div>
+          <span class="check-meta">BUZZ側</span>
         </div>
-        <div class="roadmap">
-          <div class="roadmap-item">
-            <div class="roadmap-day">1日目</div>
-            <div class="roadmap-line"><div class="roadmap-dot done"></div><div class="roadmap-connector"></div></div>
-            <div class="roadmap-body">
-              <div class="roadmap-title">初回対応・環境整備</div>
-              <div class="roadmap-detail">IBOコンテンツサイト登録 / Notion・Mindmap・Canva共有 / 研修シート送付 / Slack招待 / 初回日程調整</div>
-            </div>
-          </div>
-          <div class="roadmap-item">
-            <div class="roadmap-day">2〜7日目</div>
-            <div class="roadmap-line"><div class="roadmap-dot current"></div><div class="roadmap-connector"></div></div>
-            <div class="roadmap-body">
-              <div class="roadmap-title">全体像の把握 / 基礎編熟読</div>
-              <div class="roadmap-detail">Mindmap・Notion通読 → IBOコンテンツサイト「基礎編」まで熟読 → アウトプット記入</div>
-            </div>
-          </div>
-          <div class="roadmap-item">
-            <div class="roadmap-day">7〜12日目</div>
-            <div class="roadmap-line"><div class="roadmap-dot"></div><div class="roadmap-connector"></div></div>
-            <div class="roadmap-body">
-              <div class="roadmap-title">コンテンツ制作編を熟読</div>
-              <div class="roadmap-detail">資料向き・動画向きの違いを理解。商品タイプの判断基準をマスターする</div>
-            </div>
-          </div>
-          <div class="roadmap-item">
-            <div class="roadmap-day">12〜20日目</div>
-            <div class="roadmap-line"><div class="roadmap-dot"></div><div class="roadmap-connector"></div></div>
-            <div class="roadmap-body">
-              <div class="roadmap-title">準備編熟読 / ツール設定</div>
-              <div class="roadmap-detail">タイ版ライン購入・LINE設定 / ペライチ（LP）の見方・作り方を確認</div>
-            </div>
-          </div>
-          <div class="roadmap-item">
-            <div class="roadmap-day">20〜28日目</div>
-            <div class="roadmap-line"><div class="roadmap-dot"></div><div class="roadmap-connector"></div></div>
-            <div class="roadmap-body">
-              <div class="roadmap-title">運用編熟読</div>
-              <div class="roadmap-detail">コメント誘導3型 / CTA画像 / ローンチストーリーズの型を把握</div>
-            </div>
-          </div>
-          <div class="roadmap-item">
-            <div class="roadmap-day">28〜30日目</div>
-            <div class="roadmap-line"><div class="roadmap-dot"></div><div class="roadmap-connector"></div></div>
-            <div class="roadmap-body">
-              <div class="roadmap-title">アウトプット + ロープレ①②③</div>
-              <div class="roadmap-detail">学んだことをSlackにアウトプット投稿 / ZOOM内でロープレ3回実施（事前ヒアリング・打ち合わせ①②想定）</div>
-            </div>
-          </div>
+        <div class="check-row" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">Notion・Mindmap・Canvaリンクを生徒さんに共有</div>
+          <span class="check-meta">BUZZ側</span>
+        </div>
+        <div class="check-row" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">研修スプレッドシートを生徒さんに送付</div>
+          <span class="check-meta">BUZZ側</span>
+        </div>
+        <div class="check-row" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">Slackチャンネル「コンテンツ販売」に招待</div>
+          <span class="check-meta">BUZZ側</span>
+        </div>
+        <div class="check-row" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">契約書送付 → 締結確認</div>
+          <span class="check-meta">BUZZ側</span>
+        </div>
+        <div class="check-row" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">LINEグループ作成・次回日程決め</div>
+          <span class="check-meta">BUZZ側</span>
+        </div>
+        <div class="check-row" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">フォロワー分析ワーク記入</div>
+          <span class="check-meta">生徒さん</span>
+        </div>
+        <div class="check-row" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">タイ版ライン購入＋簡単なLINE設定</div>
+          <span class="check-meta">生徒さん</span>
         </div>
       </div>
+    </div>
 
-      <!-- チェックリスト -->
-      <div class="section" id="checklist">
-        <div class="section-header">
-          <span class="section-num">03</span>
-          <span class="section-title">初回対応チェックリスト</span>
-          <span class="section-sub">1日目完了必須</span>
-        </div>
-        <div class="checklist">
-          <div class="check-row" onclick="toggleCheck(this)">
-            <div class="check-box"></div>
-            <div class="check-text">IBOコンテンツサイト登録（https://ibo.teachable.com/courses/）</div>
-            <span class="check-meta">BUZZ側</span>
-          </div>
-          <div class="check-row" onclick="toggleCheck(this)">
-            <div class="check-box"></div>
-            <div class="check-text">Notion・Mindmap・Canvaリンクを生徒さんに共有</div>
-            <span class="check-meta">BUZZ側</span>
-          </div>
-          <div class="check-row" onclick="toggleCheck(this)">
-            <div class="check-box"></div>
-            <div class="check-text">研修スプレッドシートを生徒さんに送付</div>
-            <span class="check-meta">BUZZ側</span>
-          </div>
-          <div class="check-row" onclick="toggleCheck(this)">
-            <div class="check-box"></div>
-            <div class="check-text">Slackチャンネル「コンテンツ販売」に招待</div>
-            <span class="check-meta">BUZZ側</span>
-          </div>
-          <div class="check-row" onclick="toggleCheck(this)">
-            <div class="check-box"></div>
-            <div class="check-text">契約書送付 → 締結確認</div>
-            <span class="check-meta">BUZZ側</span>
-          </div>
-          <div class="check-row" onclick="toggleCheck(this)">
-            <div class="check-box"></div>
-            <div class="check-text">LINEグループ作成・次回日程決め</div>
-            <span class="check-meta">BUZZ側</span>
-          </div>
-          <div class="check-row" onclick="toggleCheck(this)">
-            <div class="check-box"></div>
-            <div class="check-text">フォロワー分析ワーク記入（生徒さん）</div>
-            <span class="check-meta">生徒さん</span>
-          </div>
-          <div class="check-row" onclick="toggleCheck(this)">
-            <div class="check-box"></div>
-            <div class="check-text">タイ版ライン購入＋簡単なLINE設定（生徒さん）</div>
-            <span class="check-meta">生徒さん</span>
-          </div>
-        </div>
+
+    <!-- 研修スケジュール表 -->
+    <div class="section" id="schedule-table">
+      <div class="sec-head">
+        <div class="sec-icon ic-sage">📋</div>
+        <span class="sec-title">研修スケジュール表</span>
+        <span class="sec-sub">1〜30日目</span>
       </div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:90px;">実施日目安</th>
+            <th style="width:100px;">フェーズ</th>
+            <th>実施内容</th>
+            <th>詳細・リンク / トークポイント</th>
+            <th style="width:180px;">アウトプット欄（生徒記入）</th>
+            <th style="width:8px;">✓</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1日目</td>
+            <td><span class="s-pill s-done">初回対応</span></td>
+            <td><strong>IBOコンテンツサイト登録</strong></td>
+            <td style="font-size:12px;color:var(--text2);">https://ibo.teachable.com/courses/<br>ログイン情報を事前に確認</td>
+            <td></td>
+            <td style="text-align:center;" onclick="toggleTd(this)">□</td>
+          </tr>
+          <tr>
+            <td>1日目</td>
+            <td><span class="s-pill s-done">初回対応</span></td>
+            <td><strong>Notion・Mindmap・Canva共有</strong></td>
+            <td style="font-size:12px;color:var(--text2);">各リンクを生徒さんに送付</td>
+            <td></td>
+            <td style="text-align:center;" onclick="toggleTd(this)">□</td>
+          </tr>
+          <tr>
+            <td>1日目</td>
+            <td><span class="s-pill s-done">初回対応</span></td>
+            <td><strong>Slackチャンネル「コンテンツ販売」招待</strong></td>
+            <td style="font-size:12px;color:var(--text2);">招待後、自己紹介投稿をしてもらう</td>
+            <td></td>
+            <td style="text-align:center;" onclick="toggleTd(this)">□</td>
+          </tr>
+          <tr>
+            <td>1日目</td>
+            <td><span class="s-pill s-done">初回対応</span></td>
+            <td><strong>初回研修の日程調整</strong></td>
+            <td style="font-size:12px;color:var(--text2);">研修日時：　　月　　日（　）　:　〜</td>
+            <td></td>
+            <td style="text-align:center;" onclick="toggleTd(this)">□</td>
+          </tr>
+          <tr>
+            <td>2〜5日目</td>
+            <td><span class="s-pill" style="background:var(--sage-light);color:var(--sage);">導入期間</span></td>
+            <td><strong>コンテンツ販売の全体像を把握する</strong></td>
+            <td style="font-size:12px;color:var(--text2);">Mindmap確認 / Notionの研修コンテンツを通読<br>コンテンツ販売は①LINE誘導②商品作成③販売の3フェーズ</td>
+            <td style="font-size:12px;color:var(--text2);">Mindmapを見て気づいたこと・疑問点↓</td>
+            <td style="text-align:center;" onclick="toggleTd(this)">□</td>
+          </tr>
+          <tr>
+            <td>2〜7日目</td>
+            <td><span class="s-pill" style="background:var(--sage-light);color:var(--sage);">導入期間</span></td>
+            <td><strong>IBOコンテンツサイト熟読「基礎編」まで＋α知識テスト</strong></td>
+            <td style="font-size:12px;color:var(--text2);">https://ibo.teachable.com/courses/<br>読んで理解したことを自分の言葉でアウトプット</td>
+            <td style="font-size:12px;color:var(--text2);">基礎編を読んで学んだこと↓</td>
+            <td style="text-align:center;" onclick="toggleTd(this)">□</td>
+          </tr>
+          <tr>
+            <td>7〜12日目</td>
+            <td><span class="s-pill" style="background:var(--sage-light);color:var(--sage);">導入期間</span></td>
+            <td><strong>IBOコンテンツサイト熟読「コンテンツ制作」まで＋α知識テスト</strong></td>
+            <td style="font-size:12px;color:var(--text2);">商品タイプ（資料/動画）の違いを理解する<br>資料向き：レシピ・Excel・チェックリスト<br>動画向き：運動・操作画面・ニュアンスが伝わるもの</td>
+            <td style="font-size:12px;color:var(--text2);">コンテンツ制作編で学んだこと↓</td>
+            <td style="text-align:center;" onclick="toggleTd(this)">□</td>
+          </tr>
+          <tr>
+            <td>12〜20日目</td>
+            <td><span class="s-pill" style="background:var(--sage-light);color:var(--sage);">導入期間</span></td>
+            <td><strong>IBOコンテンツサイト熟読「準備編」まで＋α知識テスト</strong></td>
+            <td style="font-size:12px;color:var(--text2);">タイ版ライン購入・LINE設定の流れを把握<br>ペライチ（LP）の見方・作り方を確認</td>
+            <td style="font-size:12px;color:var(--text2);">準備編で学んだこと↓</td>
+            <td style="text-align:center;" onclick="toggleTd(this)">□</td>
+          </tr>
+          <tr>
+            <td>20〜28日目</td>
+            <td><span class="s-pill" style="background:var(--sage-light);color:var(--sage);">導入期間</span></td>
+            <td><strong>IBOコンテンツサイト熟読「運用編」まで＋α知識テスト</strong></td>
+            <td style="font-size:12px;color:var(--text2);">コメント誘導3つの型を理解する<br>CTA画像の使い方<br>ローンチストーリーズの型を把握</td>
+            <td style="font-size:12px;color:var(--text2);">運用編で学んだこと↓</td>
+            <td style="text-align:center;" onclick="toggleTd(this)">□</td>
+          </tr>
+          <tr>
+            <td>28〜30日目</td>
+            <td><span class="s-pill" style="background:var(--peach-light);color:#b07060;">アウトプット</span></td>
+            <td><strong>第1〜4週で学んだことを自分の言葉でアウトプット</strong></td>
+            <td style="font-size:12px;color:var(--text2);">Slackの#コンテンツ販売チャンネルに投稿<br>アウトプット日時：　　月　　日（　）　:　〜</td>
+            <td style="font-size:12px;color:var(--text2);">自由記述（何を学び、何を実践するか）↓</td>
+            <td style="text-align:center;" onclick="toggleTd(this)">□</td>
+          </tr>
+          <tr>
+            <td>〜第4週</td>
+            <td><span class="s-pill" style="background:var(--lav-light);color:#8b7ec0;">ロープレ</span></td>
+            <td><strong>ロープレ実施①（ZOOM内・事前ヒアリング想定）</strong></td>
+            <td style="font-size:12px;color:var(--text2);">ロープレ日時①：　　月　　日（　）　:　〜<br>事前ヒアリング〜契約〜初回タスク説明の流れ</td>
+            <td></td>
+            <td style="text-align:center;" onclick="toggleTd(this)">□</td>
+          </tr>
+          <tr>
+            <td>〜第4週</td>
+            <td><span class="s-pill" style="background:var(--lav-light);color:#8b7ec0;">ロープレ</span></td>
+            <td><strong>ロープレ実施②（ZOOM内・打ち合わせ①想定）</strong></td>
+            <td style="font-size:12px;color:var(--text2);">ロープレ日時②：　　月　　日（　）　:　〜<br>商品の方向性・コンセプト確認・LINE誘導の流れ</td>
+            <td></td>
+            <td style="text-align:center;" onclick="toggleTd(this)">□</td>
+          </tr>
+          <tr>
+            <td>〜第4週</td>
+            <td><span class="s-pill" style="background:var(--lav-light);color:#8b7ec0;">ロープレ</span></td>
+            <td><strong>ロープレ実施③（ZOOM内・打ち合わせ②想定）</strong></td>
+            <td style="font-size:12px;color:var(--text2);">ロープレ日時③：　　月　　日（　）　:　〜<br>商品内容FBと資料/動画の判断・コメント誘導アドバイス</td>
+            <td></td>
+            <td style="text-align:center;" onclick="toggleTd(this)">□</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-      <!-- 打ち合わせフェーズ -->
-      <div class="section" id="mtng">
-        <div class="section-header">
-          <span class="section-num">04</span>
-          <span class="section-title">打ち合わせフェーズ一覧</span>
-          <span class="section-sub">9フェーズ</span>
-        </div>
-        <table class="mtng-table">
-          <thead>
-            <tr>
-              <th style="width:120px;">フェーズ</th>
-              <th style="width:80px;">ステータス</th>
-              <th>GOAL</th>
-              <th>主なチェック項目</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>事前ヒアリング</strong><div class="goal-text">契約前</div></td>
-              <td><span class="phase-pill" style="background:rgba(26,79,216,0.1);color:var(--accent);">実施済</span></td>
-              <td>契約書を締結する🔥<div class="goal-text">週10h以上確認 / NGジャンル見極め</div></td>
-              <td style="font-size:12px; color:var(--ink3);">テスクロ① / レベシェア説明 / テスクロ② / 契約書締結</td>
-            </tr>
-            <tr>
-              <td><strong>打ち合わせ①</strong><div class="goal-text">商品の方向性</div></td>
-              <td><span class="phase-pill" style="background:rgba(26,122,74,0.1);color:var(--green);">進行中</span></td>
-              <td>商品の方向性を精査する<div class="goal-text">商品の大枠の軸を次回までに決める</div></td>
-              <td style="font-size:12px; color:var(--ink3);">コンセプト確認 / 強みの棚卸し / LINE誘導方針決定</td>
-            </tr>
-            <tr>
-              <td><strong>打ち合わせ②</strong><div class="goal-text">商品内容確定</div></td>
-              <td><span class="phase-pill" style="background:var(--paper2);color:var(--ink3);">未実施</span></td>
-              <td>商品内容が仮確定🔥<div class="goal-text">資料 or 動画の判断を含む</div></td>
-              <td style="font-size:12px; color:var(--ink3);">ボリューム確認 / 構成FB / 媒体選択 / 追加コンテンツ提案</td>
-            </tr>
-            <tr>
-              <td><strong>打ち合わせ③</strong><div class="goal-text">通常投稿・リスト取り</div></td>
-              <td><span class="phase-pill" style="background:var(--paper2);color:var(--ink3);">未実施</span></td>
-              <td>公式LINE 1,000人<div class="goal-text">コメント誘導3型をマスター</div></td>
-              <td style="font-size:12px; color:var(--ink3);">コメント誘導3型解説 / 配布物説明 / CTA画像の型</td>
-            </tr>
-            <tr>
-              <td><strong>打ち合わせ④</strong><div class="goal-text">プレゼント企画</div></td>
-              <td><span class="phase-pill" style="background:var(--paper2);color:var(--ink3);">未実施</span></td>
-              <td>リスト獲得＆興味度UP<div class="goal-text">プレゼント3つ・発信スケジュール確定</div></td>
-              <td style="font-size:12px; color:var(--ink3);">プレゼント内容決定（1つは100選規模）/ ライブ・ストーリーズ戦略</td>
-            </tr>
-            <tr>
-              <td><strong>打ち合わせ⑤</strong><div class="goal-text">レター作成</div></td>
-              <td><span class="phase-pill" style="background:var(--paper2);color:var(--ink3);">未実施</span></td>
-              <td>肉付けを完了させる<div class="goal-text">LP3要素：問題提起・原因・解決手段</div></td>
-              <td style="font-size:12px; color:var(--ink3);">8割ベース確認 / 2割の肉付けFB</td>
-            </tr>
-            <tr>
-              <td><strong>打ち合わせ⑥</strong><div class="goal-text">ローンチストーリーズ</div></td>
-              <td><span class="phase-pill" style="background:var(--paper2);color:var(--ink3);">未実施</span></td>
-              <td>期待値UP・購入促進<div class="goal-text">❶期待値 ❷参加促進 ❸購入促進</div></td>
-              <td style="font-size:12px; color:var(--ink3);">実態を映像で出す / 購入報告大量貼り付け</td>
-            </tr>
-            <tr>
-              <td><strong>打ち合わせ⑦</strong><div class="goal-text">LINE関連</div></td>
-              <td><span class="phase-pill" style="background:var(--paper2);color:var(--ink3);">未実施</span></td>
-              <td>予約配信を正しく設定<div class="goal-text">⚠️リンク貼り間違い・時間ミス絶対NG</div></td>
-              <td style="font-size:12px; color:var(--ink3);">4行ルール / ダブルチェック / ダウングレード確認</td>
-            </tr>
-            <tr>
-              <td><strong>ローンチ後</strong><div class="goal-text">振り返り</div></td>
-              <td><span class="phase-pill" style="background:var(--paper2);color:var(--ink3);">未実施</span></td>
-              <td>振り返り・次回準備<div class="goal-text">経理・精算・請求書対応</div></td>
-              <td style="font-size:12px; color:var(--ink3);">夏目さんへ連携（25日まで）/ 精算書作成 / アップデート計画</td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- アウトプット記入表 -->
+    <div class="section" id="output-table">
+      <div class="sec-head">
+        <div class="sec-icon ic-peach">✍️</div>
+        <span class="sec-title">コンテンツサイト熟読｜アウトプット・質問記入表</span>
       </div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:180px;">内容</th>
+            <th>アウトプット・メモ（自由記述）</th>
+            <th style="width:200px;">不明点・質問</th>
+            <th style="width:200px;">回答（りょうた or ゆきな記入）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Mindmap確認</strong></td><td style="min-height:60px;"> </td><td></td><td></td></tr>
+          <tr><td><strong>Notion確認（研修コンテンツ全体）</strong></td><td> </td><td></td><td></td></tr>
+          <tr><td><strong>IBOコンテンツサイト熟読「基礎編」まで</strong></td><td> </td><td></td><td></td></tr>
+          <tr><td><strong>IBOコンテンツサイト熟読「コンテンツ制作」まで</strong></td><td> </td><td></td><td></td></tr>
+          <tr><td><strong>IBOコンテンツサイト熟読「準備編」まで</strong></td><td> </td><td></td><td></td></tr>
+          <tr><td><strong>IBOコンテンツサイト熟読「運用編」まで</strong></td><td> </td><td></td><td></td></tr>
+          <tr><td><strong>第1〜4週で学んだことをアウトプットする</strong></td><td> </td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
 
-      <!-- ロープレ -->
-      <div class="section" id="roleplay">
-        <div class="section-header">
-          <span class="section-num">05</span>
-          <span class="section-title">ロープレ資料</span>
-          <span class="section-sub">5アカウント × 打ち合わせ①②</span>
-        </div>
-        <div class="warn-box">
-          <p>ロープレは「事前ヒアリング」「打ち合わせ①（商品の方向性）」「打ち合わせ②（商品内容確定）」の3回をZOOM内で実施します。スプレッドシートの<strong>②ロープレ資料シート</strong>を開いて記録してください。</p>
-        </div>
-        <div class="account-grid" style="margin-top:16px;">
-          <div class="account-card" style="text-align:left; padding: 16px;">
-            <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--ink3);margin-bottom:6px;">No.01 — Excel</div>
-            <div style="font-size:13px;font-weight:700;margin-bottom:4px;">konさん</div>
-            <div style="font-size:11px;color:var(--ink3);">@kon.excel</div>
-          </div>
-          <div class="account-card" style="text-align:left; padding: 16px;">
-            <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--ink3);margin-bottom:6px;">No.02 — 知育</div>
-            <div style="font-size:13px;font-weight:700;margin-bottom:4px;">細谷さん</div>
-            <div style="font-size:11px;color:var(--ink3);">@kids_goontoup</div>
-          </div>
-          <div class="account-card" style="text-align:left; padding: 16px;">
-            <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--ink3);margin-bottom:6px;">No.03 — お金</div>
-            <div style="font-size:13px;font-weight:700;margin-bottom:4px;">中村さん</div>
-            <div style="font-size:11px;color:var(--ink3);">@chiho_mum</div>
-          </div>
-          <div class="account-card" style="text-align:left; padding: 16px;">
-            <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--ink3);margin-bottom:6px;">No.04 — イラスト</div>
-            <div style="font-size:13px;font-weight:700;margin-bottom:4px;">塩入さん</div>
-            <div style="font-size:11px;color:var(--ink3);">@nijisuke_0707</div>
-          </div>
-          <div class="account-card" style="text-align:left; padding: 16px;">
-            <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--ink3);margin-bottom:6px;">No.05 — 介護</div>
-            <div style="font-size:13px;font-weight:700;margin-bottom:4px;">中本さん</div>
-            <div style="font-size:11px;color:var(--ink3);">@kaigo_care_line</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- クイズ -->
-      <div class="section" id="quiz">
-        <div class="section-header">
-          <span class="section-num">06</span>
-          <span class="section-title">知識クイズ</span>
-          <span class="section-sub">20問 / 全7カテゴリ</span>
-        </div>
-        <div class="info-box">
-          <p>スプレッドシートの<strong>③知識クイズシート</strong>で全20問を確認・受験できます。正解と解説が記載されています。</p>
-        </div>
-        <div class="quiz-grid">
-          <div class="quiz-card">
-            <div class="quiz-cat">CATEGORY 01</div>
-            <div class="quiz-q">リスト取り</div>
-            <div class="quiz-count">4問 — コメント誘導の型・CTA・目標人数</div>
-          </div>
-          <div class="quiz-card">
-            <div class="quiz-cat">CATEGORY 02</div>
-            <div class="quiz-q">プレゼント企画</div>
-            <div class="quiz-count">4問 — プレゼント数・量・ライブ・基準</div>
-          </div>
-          <div class="quiz-card">
-            <div class="quiz-cat">CATEGORY 03</div>
-            <div class="quiz-q">ローンチストーリーズ</div>
-            <div class="quiz-count">2問 — 3目的・効果的コンテンツ</div>
-          </div>
-          <div class="quiz-card">
-            <div class="quiz-cat">CATEGORY 04</div>
-            <div class="quiz-q">LINE配信</div>
-            <div class="quiz-count">4問 — 文章ルール・リンクNG・ダウングレード</div>
-          </div>
-          <div class="quiz-card">
-            <div class="quiz-cat">CATEGORY 05</div>
-            <div class="quiz-q">ペライチ・LP</div>
-            <div class="quiz-count">1問 — レターの3要素</div>
-          </div>
-          <div class="quiz-card">
-            <div class="quiz-cat">CATEGORY 06</div>
-            <div class="quiz-q">タイ版LINE購入</div>
-            <div class="quiz-count">2問 — 目的・初期費用</div>
-          </div>
-          <div class="quiz-card">
-            <div class="quiz-cat">CATEGORY 07</div>
-            <div class="quiz-q">総合</div>
-            <div class="quiz-count">3問 — 投稿継続理由・レベシェア・作業時間</div>
-          </div>
-          <div class="quiz-card" style="border:1.5px dashed var(--border); background: transparent; display:flex; align-items:center; justify-content:center; cursor:default;">
-            <div style="text-align:center; color:var(--ink3);">
-              <div style="font-size:22px; margin-bottom:6px;">20</div>
-              <div style="font-size:11px;">問合計</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </main>
-  </div>
+  </main>
 </div>
 
 <footer>
-  <span>BUZZ — コンテンツ販売 サポーター研修ポータル v2.0</span>
-  <span>研修期間：1〜30日目 ／ 担当：りょうた / ゆきな</span>
+  <span class="logo-sm">BUZZ ✦</span>
+  <span>コンテンツ販売 サポーター研修ポータル v2.0　／　担当：りょうた / ゆきな</span>
 </footer>
 
 <script>
+function toggleTd(td) {
+  if (td.textContent.trim() === '□') {
+    td.textContent = '✓';
+    td.style.color = 'var(--sage)';
+    td.style.fontWeight = '700';
+    td.parentElement.style.opacity = '0.5';
+  } else {
+    td.textContent = '□';
+    td.style.color = '';
+    td.style.fontWeight = '';
+    td.parentElement.style.opacity = '1';
+  }
+}
 function toggleCheck(row) {
   const box = row.querySelector('.check-box');
   const text = row.querySelector('.check-text');
   box.classList.toggle('checked');
   text.classList.toggle('checked');
 }
-
 document.querySelectorAll('.nav-item').forEach(item => {
-  item.addEventListener('click', function(e) {
+  item.addEventListener('click', function() {
     const href = this.getAttribute('href');
     if (href && href.startsWith('#')) {
       document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
